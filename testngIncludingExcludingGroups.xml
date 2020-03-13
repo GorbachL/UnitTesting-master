@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="tests.testNG" verbose="1">
+	<test
+			name="D:\QAA_training\UnitTesting-master\UnitTesting-master\src\test\java\tests\testNG\CartWithParametersTest.java">
+
+		<groups>
+			<run>
+				<include name="init"/>
+				<exclude name="data test"/>
+				<exclude name="param test"/>
+			</run>
+		</groups>
+
+		<packages>
+			<package name="tests.testNG"/>
+		</packages>
+	</test>
+</suite>

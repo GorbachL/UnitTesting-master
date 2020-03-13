@@ -23,7 +23,8 @@ public class JsonParser implements Parser {
 
     public Cart readFromFile(File file) {
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-            return gson.fromJson(reader.readLine(), Cart.class);
+            //return gson.fromJson(reader.readLine(), Cart.class);
+            return gson.fromJson(reader, Cart.class);
         } catch (FileNotFoundException ex) {
             throw new NoSuchFileException(String.format("File %s.json not found!", file), ex);
         } catch (IOException e) {

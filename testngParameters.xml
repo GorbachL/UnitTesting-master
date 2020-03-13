@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="tests.testNG" verbose="1">
+	<test
+			name="D:\QAA_training\UnitTesting-master\UnitTesting-master\src\test\java\tests\testNG">
+
+		<parameter name="cart-name" value="New new Cart"/>
+		<parameter name="realItem-name" value="New new Real Item"/>
+		<parameter name="virtualItem-name" value="New new Virtual Item"/>
+
+		<groups>
+			<run>
+				<include name="param test"/>
+				<exclude name="data test"/>
+				<exclude name="init"/>
+			</run>
+		</groups>
+
+		<packages>
+			<package name="tests.testNG"/>
+		</packages>
+
+	</test>
+</suite>
