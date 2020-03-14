@@ -1,18 +1,20 @@
-package tests.testNG;
+package tests.jUnit;
 
 import com.google.gson.Gson;
-import org.testng.annotations.Test;
+
+import org.junit.jupiter.api.Test;
 import parser.JsonParser;
 import parser.Parser;
 import shop.Cart;
 import shop.RealItem;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.testng.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class RealItemTest {
 
-    @Test(groups = {"data test"})
+    @Test
     public void verifyRealItemInFile() {
         Gson gson = new Gson();
         Cart cart = new Cart("RealItemOnly-cart");
@@ -30,11 +32,11 @@ public class RealItemTest {
         String result = gson.toJson(cart);
 
         assertAll("Should return the cart with Real Item",
-                () -> assertEquals(cart.getCartName(), "RealItemOnly-cart"),
-                () -> assertEquals(realItem.getName(), "Name of new Real Item"),
-                () -> assertEquals(realItem.getPrice(), 123.456),
-                () -> assertEquals(realItem.getWeight(), 777.777),
-                () -> assertEquals(cart.getTotalPrice(), (123.456 * 0.2) + 123.456)
+                () -> assertEquals("RealItemOnly-cart", cart.getCartName()),
+                () -> assertEquals("Name of new Real Item", realItem.getName()),
+                () -> assertEquals(123.456, realItem.getPrice()),
+                () -> assertEquals(777.777, realItem.getWeight()),
+                () -> assertEquals((123.456 * 0.2) + 123.456, cart.getTotalPrice())
         );
 
         System.out.println(result);
