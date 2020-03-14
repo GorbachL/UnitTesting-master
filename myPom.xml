@@ -22,8 +22,13 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M4</version>
                 <configuration>
-                    <groups>init</groups>
-                    <excludedGroups></excludedGroups>
+                    <properties>
+                        <includeTags>
+                            regression
+                        </includeTags>
+                    </properties>
+<!--                    <groups>init</groups>-->
+<!--                    <excludedGroups></excludedGroups>-->
                 </configuration>
             </plugin>
         </plugins>
@@ -40,10 +45,12 @@
             <artifactId>testng</artifactId>
             <version>7.1.0</version>
         </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.0.0</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>

@@ -10,7 +10,7 @@ import java.io.File;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ReadFromFileTest {
+public class ReadFromFileJUnitTest {
 
     @Test
     public void shouldParseFile() {

@@ -1,4 +1,4 @@
-package tests.jUnit.Utils;
+package tests.jUnit;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -17,4 +17,9 @@ public class Utils {
     public @interface InitTest {
     }
 
+    @Target({ElementType.TYPE, ElementType.METHOD})
+    @Retention(RetentionPolicy.RUNTIME)
+    @Tag("regression")
+    public @interface Regression {
+    }
 }

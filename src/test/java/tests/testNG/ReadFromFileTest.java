@@ -25,7 +25,7 @@ public class ReadFromFileTest {
         System.out.println(result);
     }
 
-    @Test(expectedExceptions = NoSuchFileException.class, expectedExceptionsMessageRegExp = ".+ not found!", enabled = false)
+    @Test(expectedExceptions = NoSuchFileException.class, expectedExceptionsMessageRegExp = ".+ not found!")
     public void verifyNotSuchFileException() {
         JsonParser parser = new JsonParser();
         String fileName = "\"src\\main\\resources\\lena-cart.json\"";

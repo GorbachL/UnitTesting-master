@@ -2,17 +2,18 @@ package tests.jUnit;
 
 import com.google.gson.Gson;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import parser.JsonParser;
 import parser.Parser;
 import shop.Cart;
 import shop.RealItem;
 import shop.VirtualItem;
-import tests.jUnit.Utils.Utils;
 
 
 public class WriteToFileUsingTagsTest {
 
-    @Utils.InitTest
+    //@Utils.InitTest
+    @Test
     public void shouldWriteDataToFile() {
         Gson gson = new Gson();
         Cart cartWithAllData = new Cart("lena-With Data-cart");
@@ -41,7 +42,8 @@ public class WriteToFileUsingTagsTest {
         System.out.println(resultWithData);
     }
 
-    @Utils.InitTest
+    //@Utils.InitTest
+    @Test
     public void shouldWriteEmptyCartToFile() {
         Gson gson = new Gson();
         Cart cartEmpty = new Cart("lena-Empty-cart");
