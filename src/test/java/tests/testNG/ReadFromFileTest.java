@@ -39,7 +39,7 @@ public class ReadFromFileTest {
             parser.readFromFile(new File("src/main/resources/lena-cart.json"));
             fail("Expected NoSuchFileException to be thrown");
         } catch (NoSuchFileException e) {
-            assertEquals("File src\\main\\resources\\lena-cart.json.json not found!", e.getMessage());
+            assertEquals("File src/main/resources/lena-cart.json.json not found!", e.getMessage());
         }
     }
 }
