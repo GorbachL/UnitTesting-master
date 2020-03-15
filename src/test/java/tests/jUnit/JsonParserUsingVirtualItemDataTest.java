@@ -14,12 +14,12 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class JsonParserUsingVirtualItemDataTest {
+class JsonParserUsingVirtualItemDataTest {
 
 
     @ParameterizedTest
     @MethodSource("virtualItemStream")
-    public void verifyVirtualItemWithAllDataInFile(VirtualItem virtualItem) {
+    void verifyVirtualItemWithDifferentDataTest(VirtualItem virtualItem) {
 
         Gson gson = new Gson();
         Cart cart = new Cart("Cart with Virtual Item jUnit5");
@@ -32,8 +32,10 @@ public class JsonParserUsingVirtualItemDataTest {
         String result = gson.toJson(cart);
         System.out.println(result);
 
-        assertAll("Should return 4 carts with Virtual Items",
-                () -> assertEquals("Cart with Virtual Item jUnit5", cart.getCartName())
+        assertAll("Should return carts with Virtual Items",
+                () -> assertEquals("Cart with Virtual Item jUnit5",
+                        cart.getCartName(),
+                        virtualItem.getName())
         );
     }
 

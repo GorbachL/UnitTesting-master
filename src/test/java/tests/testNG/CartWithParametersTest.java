@@ -16,7 +16,7 @@ public class CartWithParametersTest {
 
     @Parameters({"cart-name", "realItem-name", "virtualItem-name"})
     @Test(groups = {"param test"})
-    public void shouldWriteDataToFileUsingParameters(String cartName, String realItemName, String virtualItemName) {
+    public void shouldWriteDataToFileUsingParametersTest(String cartName, String realItemName, String virtualItemName) {
         Gson gson = new Gson();
         Cart cart = new Cart(cartName);
 
@@ -34,17 +34,15 @@ public class CartWithParametersTest {
         cart.addVirtualItem(virtualItem);
 
         Parser parser = new JsonParser();
-
         parser.writeToFile(cart);
 
         String result = gson.toJson(cart);
+        System.out.println(result);
 
         assertAll("Should return the cart with Real and Virtual Items",
                 () -> assertEquals(cartName, cart.getCartName()),
                 () -> assertEquals(realItemName, realItem.getName()),
                 () -> assertEquals(virtualItemName, virtualItem.getName())
         );
-
-        System.out.println(result);
     }
 }

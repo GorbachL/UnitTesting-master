@@ -12,8 +12,8 @@ import static org.testng.Assert.assertEquals;
 
 public class RealItemTest {
 
-    @Test(groups = {"data test"})
-    public void verifyRealItemInFile() {
+    @Test
+    public void verifyCartWithRealItemWriteInFileTest() {
         Gson gson = new Gson();
         Cart cart = new Cart("RealItemOnly-cart");
 
@@ -28,6 +28,7 @@ public class RealItemTest {
         parser.writeToFile(cart);
 
         String result = gson.toJson(cart);
+        System.out.println(result);
 
         assertAll("Should return the cart with Real Item",
                 () -> assertEquals(cart.getCartName(), "RealItemOnly-cart"),
@@ -36,7 +37,5 @@ public class RealItemTest {
                 () -> assertEquals(realItem.getWeight(), 777.777),
                 () -> assertEquals(cart.getTotalPrice(), (123.456 * 0.2) + 123.456)
         );
-
-        System.out.println(result);
     }
 }

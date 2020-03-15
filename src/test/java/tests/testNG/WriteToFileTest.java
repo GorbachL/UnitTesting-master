@@ -14,9 +14,9 @@ import static org.testng.Assert.assertEquals;
 public class WriteToFileTest {
 
     @Test(groups = {"init"})
-    public void shouldWriteDataToFile() {
+    public void shouldWriteDataToFileTest() {
         Gson gson = new Gson();
-        Cart cartWithAllData = new Cart("lena-With Data-cart");
+        Cart cartWithAllData = new Cart("lena-all Data-cart");
 
         RealItem realItem = new RealItem();
         realItem.setName("Real");
@@ -32,18 +32,17 @@ public class WriteToFileTest {
         cartWithAllData.addVirtualItem(virtualItem);
 
         Parser parser = new JsonParser();
-
         parser.writeToFile(cartWithAllData);
 
         String resultWithData = gson.toJson(cartWithAllData);
-        String expectedResultWithData = "{\"cartName\":\"lena-With Data-cart\",\"realItems\":[{\"weight\":230.023,\"name\":\"Real\",\"price\":100.0}],\"virtualItems\":[{\"sizeOnDisk\":45.45,\"name\":\"Virtual\",\"price\":777.0}],\"total\":1052.4}";
+        String expectedResultWithData = "{\"cartName\":\"lena-all Data-cart\",\"realItems\":[{\"weight\":230.023,\"name\":\"Real\",\"price\":100.0}],\"virtualItems\":[{\"sizeOnDisk\":45.45,\"name\":\"Virtual\",\"price\":777.0}],\"total\":1052.4}";
+        System.out.println(resultWithData);
 
         assertEquals(resultWithData, expectedResultWithData);
-        System.out.println(resultWithData);
     }
 
-    @Test(dependsOnMethods = {"shouldWriteDataToFile"}, groups = {"init"})
-    public void shouldWriteEmptyCartToFile() {
+    @Test(dependsOnMethods = {"shouldWriteDataToFileTest"}, groups = {"init"})
+    public void shouldWriteEmptyCartToFileTest() {
         Gson gson = new Gson();
         Cart cartEmpty = new Cart("lena-Empty-cart");
         Parser parser = new JsonParser();
@@ -52,9 +51,9 @@ public class WriteToFileTest {
 
         String resultEmptyCart = gson.toJson(cartEmpty);
         String expectedResultEmptyCart = "{\"cartName\":\"lena-Empty-cart\",\"realItems\":[],\"virtualItems\":[],\"total\":0.0}";
+        System.out.println(resultEmptyCart);
 
         assertEquals(resultEmptyCart, expectedResultEmptyCart);
-        System.out.println(resultEmptyCart);
     }
 }
 

@@ -12,12 +12,12 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class RealItemTest {
+class RealItemJunitTest {
 
     @Test
-    public void verifyRealItemInFile() {
+    void verifyRealItemIsInFileTest() {
         Gson gson = new Gson();
-        Cart cart = new Cart("RealItemOnly-cart");
+        Cart cart = new Cart("RealItemJunit-cart");
 
         RealItem realItem = new RealItem();
         realItem.setName("Name of new Real Item");
@@ -30,15 +30,14 @@ public class RealItemTest {
         parser.writeToFile(cart);
 
         String result = gson.toJson(cart);
+        System.out.println(result);
 
         assertAll("Should return the cart with Real Item",
-                () -> assertEquals("RealItemOnly-cart", cart.getCartName()),
+                () -> assertEquals("RealItemJunit-cart", cart.getCartName()),
                 () -> assertEquals("Name of new Real Item", realItem.getName()),
                 () -> assertEquals(123.456, realItem.getPrice()),
                 () -> assertEquals(777.777, realItem.getWeight()),
                 () -> assertEquals((123.456 * 0.2) + 123.456, cart.getTotalPrice())
         );
-
-        System.out.println(result);
     }
 }

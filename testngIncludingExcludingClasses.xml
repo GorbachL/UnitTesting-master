@@ -8,23 +8,24 @@
 			<class name="tests.testNG.ReadFromFileTest">
 				<methods>
 					<include name="shouldParseFile"/>
-					<include name="verifyReadFileThatDoesNotExist"/>
-					<exclude name="verifyNotSuchFileException"/>
+					<include name="shouldParseFileTest"/>
+					<exclude name="verifyNotSuchFileExceptionTest"/>
 				</methods>
 			</class>
 
 			<class name="tests.testNG.RealItemTest">
 				<methods>
-					<include name="verifyRealItemInFile"/>
+					<include name="verifyCartWithRealItemWriteInFileTest"/>
 				</methods>
 			</class>
 
 			<class name="tests.testNG.JsonParserUsingVirtualItemDataTest">
 				<methods>
-					<include name="verifyVirtualItemWithAllDataInFile"/>
-					<include name="verifyVirtualItemWithoutNameInFile"/>
-					<exclude name="verifyVirtualItemWithoutSizeOnDiskInFile"/>
-					<include name="verifyVirtualItemWithoutPriceInFile"/>
+					<include name="verifyVirtualItemWithAllDataInFileTest"/>
+					<include name="verifyVirtualItemWithoutNameInFileTest"/>
+					<exclude name="verifyVirtualItemWithoutSizeOnDiskInFileTest"/>
+					<include name="verifyVirtualItemWithoutPriceInFileTest"/>
+					<exclude name="verifyCartWithoutNameTest"/>
 				</methods>
 			</class>
 
