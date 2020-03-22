@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="tests" parallel="tests" verbose="1">
+	<test
+			name="D:\QAA_training\UnitTesting-master\UnitTesting-master\src\test\java\tests\testNG">
+		<classes>
+
+			<class name="tests.testNG.ReadFromFileTest">
+				<methods>
+					<include name="shouldParseFile"/>
+					<include name="shouldParseFileTest"/>
+					<exclude name="verifyNotSuchFileExceptionTest"/>
+				</methods>
+			</class>
+
+			<class name="tests.testNG.RealItemTest">
+				<methods>
+					<include name="verifyCartWithRealItemWriteInFileTest"/>
+				</methods>
+			</class>
+
+			<class name="tests.testNG.JsonParserUsingVirtualItemDataTest">
+				<methods>
+					<include name="verifyVirtualItemWithAllDataInFileTest"/>
+					<include name="verifyVirtualItemWithoutNameInFileTest"/>
+					<exclude name="verifyVirtualItemWithoutSizeOnDiskInFileTest"/>
+					<include name="verifyVirtualItemWithoutPriceInFileTest"/>
+					<exclude name="verifyCartWithoutNameTest"/>
+				</methods>
+			</class>
+
+		</classes>
+	</test>
+</suite>
